@@ -39,5 +39,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         udpReceive.stopTask();
+        //停止socket服务监听，停止socket
+        MyWebSocketServer.getInstance().closeConnect();
+    }
+
+    public void sendMessage(View view) {
+        MyWebSocketServer.getInstance().sendMessage("hello world");
     }
 }
