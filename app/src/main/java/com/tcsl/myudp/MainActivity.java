@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.tcsl.myudp.server.MyWebSocketServer;
 import com.tcsl.myudp.udp.UdpReceive;
 import com.tcsl.myudp.udp.UdpSend;
+
 /**
  * 描述:服务端发送udp广播，广播socket对应的端口号
  * <p/>作者：csh
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         //服务端开启广播接收
         udpReceive = new UdpReceive();
         udpReceive.start();
+        //开启服务
+        MyWebSocketServer.getInstance();
     }
 
     /**
